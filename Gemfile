@@ -57,4 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 ###
 gem "paranoia"
-gem "devise" 
+gem "devise"
+gem 'bootstrap'
+gem 'jquery-rails' # Rails 5.1+ 
