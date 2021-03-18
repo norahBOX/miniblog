@@ -60,3 +60,4 @@ gem "paranoia"
 gem "devise"
 gem 'bootstrap'
 gem 'jquery-rails' # Rails 5.1+ 
+gem 'friendly_id', '~> 5.4.0'
