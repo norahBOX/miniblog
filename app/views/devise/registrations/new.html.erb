@@ -5,13 +5,13 @@
 
   <div class="field">
     <%= f.label "이메일" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com" %>
   </div>
 
   <div class="field">
     <%= f.label "비밀번호" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(최소 <%= @minimum_password_length %>자 이상 작성해 주세요)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
@@ -33,17 +33,17 @@
 
   <div class="field">
     <%= f.label "휴대폰번호" %><br />
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone, placeholder: "숫자만 입력해 주세요" %>
   </div>
 
   <div class="field">
     <%= f.label :instagram %><br />
-    <%= f.password_field :instagram %>
+    <%= f.text_field :instagram %>
   </div>
 
   <div class="field">
     <%= f.label :twitter %><br />
-    <%= f.password_field :twitter %>
+    <%= f.text_field :twitter %>
   </div>
 
   <div class="actions">
