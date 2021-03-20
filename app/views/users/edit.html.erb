@@ -1,0 +1,14 @@
+blog setting edit
+<% url, method = users_path, :post  %>
+<% url, method = user_path(@user.slug), :put if action_name == 'edit' %>
+
+<%= form_for(@user, url: url) do |f| %>
+  <div>
+    프로필사진 추가
+    <%= f.file_field :image %>
+  </div>
+
+  <span class="ui" style="float: right;">
+    <button class="ui button" type="submit">등록</button>
+  </span>
+  <% end %>

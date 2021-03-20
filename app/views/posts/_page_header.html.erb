@@ -1,0 +1,5 @@
+<% if user_signed_in? && @user.slug == current_user.slug %>
+  <%= link_to "블로그 정보 수정하기", edit_user_path(@user) %>
+  <%= link_to "새 글 쓰기", new_user_post_path %>
+<% else %>
+<% end %>
