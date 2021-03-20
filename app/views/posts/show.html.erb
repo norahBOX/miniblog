@@ -1,12 +1,31 @@
-<header>
+<header class="sub-header">
   <h1><%= @post.title %></h1>
-  <div>최초 작성일자 : <%= @post.created_at %>, 마지막 수정일자 : <%= @post.updated_at %></div>
+  <div class="post-info">
+    <span>최초 작성일자 : <%= @post.created_at %>, 마지막 수정일자 : <%= @post.updated_at %></span>
+    <% if current_user == @post.user %>
+      <div style="float:right;">
+        <%= link_to "수정", edit_user_post_path %> <%= link_to "삭제", user_post_path, method: :delete %>
+      </div>
+    <% end %>
+  </div>
+
 </header>
 
 <main>
-  <p><%= @post.body%></p>
+
+  <div>
+    <pre><%= @post.body%></pre>
+  </div>
+
+  <div>
+    코멘트 들어갈 부분
+  </div>
 </main>
 
-<div>
-  코멘트 들어갈 부분
-</div>
+
+<style>
+  .post-info {
+    display: inline;
+  }
+</style>
+
