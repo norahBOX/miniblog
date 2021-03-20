@@ -1,8 +1,33 @@
-<h2> post index </h2>
-<% if @user.image.present? %>
-  <%= image_tag @user.image %>
-<% else %>
-<% end %>
-<% @posts.each do |post| %>
-  <%= post.title %>
-<% end %>
+<header>
+  <h2> post index - 블로그 제목 들어감 </h2>
+  <%= render 'page_header' %>
+</header>
+
+<main>
+  <div class="profile-image">
+    <% if @user.image.present? %>
+      <%= image_tag @user.image %>
+    <% else %>
+    <% end %>
+  <div>
+
+  <% if @posts.present? %>
+
+    <div class="user-posts">
+      <h3>글 목록</h3>
+      <% @posts.each do |post| %>
+        <p><%= link_to post.title, user_post_path(user_slug: @user.slug, id: post.id) %></p>
+      <% end %>
+    </div>
+
+    <div>
+      가장 최신 글 보여주기
+      <%# last_post = @posts.last%>
+      <%#= render partial: 'show', locals: { last_post: post } %>
+    </div>
+  
+  <% else %>
+    등록된 글이 없습니다. 
+
+  <% end %>
+</main>

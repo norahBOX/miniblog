@@ -1,0 +1,21 @@
+<% url, method = user_posts_path, :post  %>
+<% url, method = user_post_path(user_slug: @user.slug, post: @post), :put if action_name == 'edit' %>
+
+
+  <%= form_for(@post, url: url) do |f| %>
+
+    <div>
+      <%= f.text_field :title , placeholder: "제목" %>
+    </div>
+
+    <hr>
+
+    <div>
+      <%= f.text_area :body, placeholder: "내용" %>
+    </div>
+
+    <span class="ui" style="float: right;">
+      <button class="ui button" type="submit">등록</button>
+    </span>
+
+  <% end %>
