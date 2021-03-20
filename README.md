@@ -27,3 +27,5 @@ rails new miniblog --database=postgresql
 xcode-select --install
 rails webpacker:install
 rails db:setup
+
+rails active_storage:install

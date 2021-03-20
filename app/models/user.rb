@@ -3,11 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
   has_many :posts
+  has_one_attached :image
 
   validates :email, presence: true
   validates :email, uniqueness: { case_sensitive: true } # 대소문자 구문
