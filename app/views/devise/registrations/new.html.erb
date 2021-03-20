@@ -1,54 +1,58 @@
-<h2>회원 가입</h2>
+<header class="sub-header">
+  <h2>회원 가입</h2>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<main>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label "이메일" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com" %>
-  </div>
+    <div class="field">
+      <%= f.label "이메일" %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "example@example.com" %>
+    </div>
 
-  <div class="field">
-    <%= f.label "비밀번호" %>
-    <% if @minimum_password_length %>
-    <em>(최소 <%= @minimum_password_length %>자 이상 작성해 주세요)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label "비밀번호" %>
+      <% if @minimum_password_length %>
+      <em>(최소 <%= @minimum_password_length %>자 이상 작성해 주세요)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label "비밀번호 확인" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+    <div class="field">
+      <%= f.label "비밀번호 확인" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
 
-  <div class="field">
-    <%= f.label "이름" %><br />
-    <%= f.text_field :name, autocomplete: "on" %>
-  </div>
+    <div class="field">
+      <%= f.label "이름" %><br />
+      <%= f.text_field :name, autocomplete: "on" %>
+    </div>
 
-  <div class="field">
-    <%= f.label "사용자명" %><br />
-    <%= f.text_field :slug, autocomplete: "on", placeholder: "영문소문자, 숫자, _로만 작성해주세요"%>
-  </div>
+    <div class="field">
+      <%= f.label "사용자명" %><br />
+      <%= f.text_field :slug, autocomplete: "on", placeholder: "영문소문자, 숫자, _로만 작성해주세요"%>
+    </div>
 
-  <div class="field">
-    <%= f.label "휴대폰번호" %><br />
-    <%= f.text_field :phone, placeholder: "숫자만 입력해 주세요" %>
-  </div>
+    <div class="field">
+      <%= f.label "휴대폰번호" %><br />
+      <%= f.text_field :phone, placeholder: "숫자만 입력해 주세요" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :instagram %><br />
-    <%= f.text_field :instagram %>
-  </div>
+    <div class="field">
+      <%= f.label :instagram %><br />
+      <%= f.text_field :instagram %>
+    </div>
 
-  <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
-  </div>
+    <div class="field">
+      <%= f.label :twitter %><br />
+      <%= f.text_field :twitter %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
+  <% end %>
 
-<%= render "devise/shared/links" %>
+  <%= render "devise/shared/links" %>
+</main>

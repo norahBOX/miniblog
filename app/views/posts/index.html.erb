@@ -1,33 +1,67 @@
-<header>
+<header class="sub-header">
   <h2> post index - 블로그 제목 들어감 </h2>
   <%= render 'page_header' %>
 </header>
 
-<main>
+<nav>
   <div class="profile-image">
     <% if @user.image.present? %>
-      <%= image_tag @user.image %>
+      <%= image_tag @user.image, style: "width:250px" %>
     <% else %>
     <% end %>
   <div>
+</nav>
+
+<main>
+
+  <div class="profile">
+    블로그주인의 자기소개/프로필
+  </div>
 
   <% if @posts.present? %>
 
-    <div class="user-posts">
+    <div class="user-posts-list">
       <h3>글 목록</h3>
       <% @posts.each do |post| %>
         <p><%= link_to post.title, user_post_path(user_slug: @user.slug, id: post.id) %></p>
       <% end %>
-    </div>
-
-    <div>
-      가장 최신 글 보여주기
-      <%# last_post = @posts.last%>
-      <%#= render partial: 'show', locals: { last_post: post } %>
     </div>
   
   <% else %>
     등록된 글이 없습니다. 
 
   <% end %>
+
 </main>
+
+<style>
+  body {
+    margin: 0;
+    background-color: #fbfbfb;
+    display: grid;
+    grid-template-rows: 57px 80px auto 240px ;
+    grid-template-columns: 1fr 5fr 1fr; 
+    grid-template-areas: 
+      "mainhd mainhd mainhd"
+      "subhd subhd subhd"
+      "nav main main"
+      "nav main main" ;
+  }
+  main {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+      "profile"
+      "user-posts-list";
+  }
+
+  .profile {
+    grid-area: "profile";
+  }
+
+  .user-posts-list {
+    grid-area: "user-posts-list";
+  }
+
+
+</style>

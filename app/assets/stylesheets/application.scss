@@ -1,1 +1,31 @@
-@import "bootstrap"
+@import "bootstrap";
+
+body {
+  margin: 0;
+  background-color: #fbfbfb;
+  display: grid;
+	grid-template-rows: 57px 80px auto 240px ;
+	grid-template-columns: 1fr 5fr 1fr; /*오 이거 좋네*/
+  grid-template-areas: 
+		"mainhd mainhd mainhd"
+    "subhd subhd subhd"
+		"nav main ad"
+		"nav ft ." ;
+}
+
+.main-header{ 
+  grid-area: mainhd;
+}
+
+.sub-header {
+  grid-area: subhd;
+  background-color: lightpink;
+}
+
+main {
+  grid-area: main;
+  // display: flex; 
+  // flex-direction: column;
+  // background-color:  lightblue;
+  // justify-content: center;
+}

@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: %I[show edit update]
 
   def index
-    @posts = @user.posts
+    @posts = @user.posts.last(5)
   end
 
   def new
