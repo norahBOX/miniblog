@@ -1,17 +1,20 @@
 <% url, method = user_posts_path, :post  %>
-<% url, method = user_post_path(user_slug: @user.slug, post: @post), :put if action_name == 'edit' %>
+<% url, method = user_post_path, :put if action_name == 'edit' %>
 
+<header class="sub-header">
+  새 글 쓰기
+</header>
 
+<main>
   <%= form_for(@post, url: url) do |f| %>
-
     <div>
-      <%= f.text_field :title , placeholder: "제목" %>
+      <%= f.text_field :title , placeholder: "제목", class: "post-field title", maxlength: 255 %>
     </div>
-
+  
     <hr>
 
     <div>
-      <%= f.text_area :body, placeholder: "내용" %>
+      <%= f.text_area :body, placeholder: "내용을 입력하세요", class: "post-field body" %>
     </div>
 
     <span class="ui" style="float: right;">
@@ -19,3 +22,27 @@
     </span>
 
   <% end %>
+</main>
+
+<style>
+
+  main {
+    background-color: #fbfbfb;
+  }
+
+  .post-field {
+    background-color: #fbfbfb;
+    width: 100%;
+    border: none;
+  }
+
+  .post-field.title {
+    height: 70px;
+    font-size: 15px;
+  }
+
+  .post-field.body {
+    height: 500px;
+    overflow: visible;
+  }
+</style>

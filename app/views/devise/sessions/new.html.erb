@@ -1,26 +1,53 @@
-<h2>Log in</h2>
+<header class="sub-header">
+  <h2>로그인</h2>
+</header>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<main>
+  <div classs="login-box">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field">
+        <%= f.label :"이메일" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :"비밀번호" %>
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div>
+
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+
+      <div class="actions">
+        <%= f.submit "로그인" %>
+      </div>
+    <% end %>
+
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+    <%= link_to "회원가입", new_registration_path(resource_name) %><br />
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <%#= render "devise/shared/links" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
+</main>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+<style>
+  /* .login-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-<%= render "devise/shared/links" %>
+  .field {
+    position: relative;
+  }
+
+  .sub-header {
+    justify-items: center;
+  } */
+</style>
