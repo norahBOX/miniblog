@@ -1,11 +1,16 @@
-<% url, method = user_post_comments_path(current_user, @post), :post  %>
 
-<%= form_with(url: url, model: @post.comments.build) do |f| %>
-  <p>
-    <%= f.label :comment %>
-    <%= f.text_field :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+<% if user_signed_in? %>
+  <% url, method = user_post_comments_path(current_user, @post), :post  %>
+  <%= form_with(url: url, model: @post.comments.build) do |f| %>
+    <p>
+      <%= f.label :comment %>
+      <%= f.text_field :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
+  
+<% else %>
+  로그인한 유저만 코멘트를 작성할 수 있습니다. 
 <% end %>
