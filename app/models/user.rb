@@ -8,6 +8,7 @@ class User < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   has_many :posts
+  has_many :comments
   has_one_attached :image
 
   validates :email, presence: true
