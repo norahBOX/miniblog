@@ -19,10 +19,6 @@ class UsersController < ApplicationController
 	end
 
 	private
-	# def update_user_params
-	# 	params.require(:user).permit(:image)
-	# end
-
 	def set_user
 		@user = User.friendly.find(params[:slug]) # 블로그 수정 대상인 유저
 	end

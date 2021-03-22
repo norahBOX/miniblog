@@ -37,8 +37,6 @@ class PostsController < ApplicationController
     redirect_to user_posts_path
   end
 
-
-
   private
   def set_post
     @post = Post.find(params[:id])
