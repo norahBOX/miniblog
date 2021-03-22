@@ -1,31 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-rails new miniblog --database=postgresql
-xcode-select --install
-rails webpacker:install
-rails db:setup
-
-rails active_storage:install
+* rails new miniblog --database=postgresql
+* xcode-select --install
+* rails webpacker:install
+* rails db:setup
+* rails active_storage:install
+* 참고한 자료 스크랩 : https://blog.naver.com/imhappy0530/222272786505
