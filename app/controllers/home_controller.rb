@@ -1,8 +1,8 @@
 class HomeController < ApplicationController
 
   def index
-    @posts = Post.all 
-    @users = User.all
+    @posts = Post.last(10)
+    # @users = User.all
   end
 
 end
