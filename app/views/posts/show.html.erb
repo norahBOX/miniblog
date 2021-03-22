@@ -18,7 +18,20 @@
   </div>
 
   <div>
-    코멘트 들어갈 부분
+    <%= render "comments/form" %> 
+  </div>
+
+  <div>
+    <%if @post.comments.present? %>
+      <% @post.comments.each do |comment| %>
+        <% if comment.body.present? && comment.user.present? %>
+          <%= render "comments/comment" , comment: comment %>
+        <% else %>
+        <% end %>
+      <% end %>
+    <% else %>
+      등록된 댓글이 없습니다. 
+    <% end %>
   </div>
 </main>
 

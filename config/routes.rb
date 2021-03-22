@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :users, param: :slug do
-    resources :posts 
+    resources :posts do
+      resources :comments
+    end
   end
 end
