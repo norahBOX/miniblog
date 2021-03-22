@@ -4,24 +4,33 @@
     <span>최초 작성일자 : <%= @post.created_at %>, 마지막 수정일자 : <%= @post.updated_at %></span>
     <% if current_user == @post.user %>
       <div style="float:right;">
-        <%= link_to "수정", edit_user_post_path %> <%= link_to "삭제", user_post_path, method: :delete %>
+        <%= link_to "수정", edit_user_post_path %> <%= link_to "삭제", user_post_path, method: :delete %> <%= link_to "목록보기", user_posts_path %>
+      </div>
+    <% else %>
+      <div style="float:right;">
+        <%= link_to "목록보기", user_posts_path %>
       </div>
     <% end %>
   </div>
 
 </header>
 
-<main>
+<nav>
+  <%= render "users/profile", user: @user%>
+</nav>
 
-  <div>
+<main>
+  <div class="container post">
     <pre><%= @post.body%></pre>
   </div>
 
-  <div>
+  <div class="comment-form">
     <%= render "comments/form" %> 
   </div>
 
-  <div>
+  <br>
+
+  <div class="comment container">
     <%if @post.comments.present? %>
       <% @post.comments.each do |comment| %>
         <% if comment.body.present? && comment.user.present? %>
@@ -30,15 +39,40 @@
         <% end %>
       <% end %>
     <% else %>
-      등록된 댓글이 없습니다. 
+
     <% end %>
   </div>
 </main>
 
 
 <style>
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .post {
+    padding: 20px;
+    height: 100%;
+  }
   .post-info {
     display: inline;
   }
+
+  .comment-form {
+    border: 1px; 
+    /* background-color: white; */
+  }
+
+  .comment-show {
+    /* background-color: white; */
+    border-style: none;
+    border-radius: 10px;
+    border-width: 1px;
+    /* border-color: gray; */
+  }
+
 </style>
 

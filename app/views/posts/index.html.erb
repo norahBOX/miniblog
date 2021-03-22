@@ -4,33 +4,30 @@
 </header>
 
 <nav>
-  <div class="profile-image">
-    <% if @user.image.present? %>
-      <%= image_tag @user.image, style: "width:250px" %>
-    <% else %>
-    <% end %>
-  <div>
+  <%= render "users/profile", user: @user%>
 </nav>
 
 <main>
-
   <div class="profile">
-    블로그주인의 자기소개/프로필
+    <% if @user.intro.present? %>
+      <pre><%= @user.intro%></pre>
+    <%else%>
+      자기소개가 없습니다.
+    <% end %>
   </div>
 
-  <% if @posts.present? %>
-
-    <div class="user-posts-list">
-      <h3>글 목록</h3>
-      <% @posts.each do |post| %>
-        <p><%= link_to post.title, user_post_path(user_slug: @user.slug, id: post.id) %></p>
-      <% end %>
-    </div>
-  
-  <% else %>
-    등록된 글이 없습니다. 
-
-  <% end %>
+  <div class="user-posts-list">
+    <% if @posts.present? %>
+      <h4>최근 글 목록</h4>
+        <% @posts.each do |post| %>
+          <p><%= link_to post.title, user_post_path(user_slug: @user.slug, id: post.id) %></p>
+        <% end %>
+    <% else %>
+      <div>
+        등록된 글이 없습니다.
+      </div>
+    <% end %>
+  </div>
 
 </main>
 
@@ -57,10 +54,23 @@
 
   .profile {
     grid-area: "profile";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-style: solid;
+    border-color: gray;
+    border-width: 1px;
+    border-radius: 20px;
+    margin: 10px;
+
   }
 
   .user-posts-list {
     grid-area: "user-posts-list";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
   }
 
 

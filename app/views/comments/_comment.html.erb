@@ -1,11 +1,11 @@
-<div class="">
   <span class=""><strong><%= comment.user.slug %> : </strong></span>
   <span class=""><%= comment.body %></span>
-  <p class=""><%= "작성시간 : #{comment.created_at}" %> </p>
-  <%= link_to "코멘트 삭제", user_post_comment_path(current_user.slug, comment.post.id, comment.id), method: :delete %>
-  <hr>
-<div>
+  <span class="comment-date"><%= "#{comment.created_at}" %> </span>
+  <% if current_user == comment.user %>
+    <%= link_to "x", user_post_comment_path(current_user.slug, comment.post.id, comment.id), method: :delete %>
+  <% end %>
+<hr>
 
 <style>
-/* todo */
+
 </style>

@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
 	def update
 		@user.update(user_params)
-    redirect_to user_path
+    redirect_to user_posts_path(@user)
 	end
 
 	private
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:image)
+		params.require(:user).permit(:image, :intro)
 	end
 
   def verify_owner # 현 페이지 블로그 소유자가 로그인한 사람인가요?

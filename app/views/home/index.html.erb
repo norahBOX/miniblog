@@ -3,17 +3,11 @@
 </header>
 
 <main>
-  오늘의 인기글
+  <h3>최신글 보기</h3>
   <ul>
     <% @posts.each do |post| %>
-    <li><%= link_to post.title, user_post_path(user_slug: post.user.slug, id: post.id) %></li>
+    <li><%= link_to "#{post.title} - #{post.user.slug}님의 블로그", user_post_path(user_slug: post.user.slug, id: post.id) %></li>
     <% end %>
   </ul>
 
-  오늘의 추천 블로그
-  <ul>
-    <% @users.each do |user| %>
-    <li><%#= link_to %></li>
-    <% end %>
-  </ul>
 </main>

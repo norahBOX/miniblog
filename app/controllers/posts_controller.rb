@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: %I[new create edit update destroy] #로그인 한 유저만 글을 쓸 수 있다? 작가 인증 받은 사람이 아니고?
+  before_action :authenticate_user!, only: %I[new create edit update destroy] 
   before_action :set_post_writer
   before_action :set_post, only: %I[show edit update destroy]
 

@@ -11,6 +11,7 @@ body {
     "subhd subhd subhd"
 		"nav main ad"
 		"nav ft ." ;
+  grid-column-gap: 10px;
 }
 
 .main-header{ 
@@ -19,13 +20,19 @@ body {
 
 .sub-header {
   grid-area: subhd;
-  background-color: lightpink;
+  background-color: lightgray;
 }
 
 main {
   grid-area: main;
+
   // display: flex; 
   // flex-direction: column;
-  background-color:  lightblue;
+  background-color: #fbfbfb;
   // justify-content: center;
+}
+
+.comment-date {
+  font-size: 10px;
+  color: gray;
 }
